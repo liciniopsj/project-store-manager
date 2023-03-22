@@ -6,4 +6,8 @@ const selectAll = async () => {
   );
 
   return data;
- };
+};
+ 
+module.exports = {
+  selectAll,
+};

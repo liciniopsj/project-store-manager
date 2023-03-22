@@ -5,3 +5,7 @@ const getAllProducts = async () => {
 
   return { type: null, message: data };
 };
+
+module.exports = {
+  getAllProducts,
+};

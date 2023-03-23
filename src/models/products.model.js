@@ -23,12 +23,11 @@ const insertNewProduct = async (product) => {
 
   const [{ insertId }] = await connection.execute(
     `INSERT INTO StoreManager.products (${columns}) VALUE (${placeholders})`,
-    [...Object.values(product)]
+    [...Object.values(product)],
   );
 
   return insertId;
-}
-
+};
 
 module.exports = {
   selectAll,

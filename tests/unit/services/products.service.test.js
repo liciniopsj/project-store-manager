@@ -34,6 +34,21 @@ describe('Unity test for the Product Model', function () {
     expect(data.message).to.be.deep.equal({ message: "Product not found" });
   });
 
+  it('addProduct', async function () {
+    sinon
+      .stub(model, 'insertNewProduct')
+      .resolves(1);
+
+    sinon
+      .stub(model, 'selectProductById')
+      .resolves([{ id: 1, name: 'testProduct' }]);
+
+    const data = await service.addProduct({ name: 'testProduct' });
+
+    expect(data.message).to.be.deep.equal({ id: 1, name: 'testProduct' });
+
+  });
+
   afterEach(function () {
     sinon.restore();
   });

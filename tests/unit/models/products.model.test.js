@@ -25,6 +25,14 @@ describe('Unity test for the Product Model', function () {
 
   });
 
+  it('insertNewProduct', async function () {
+    sinon.stub(connection, 'execute').resolves([{ insertId: 4 }]);
+
+    const data = await model.insertNewProduct([{ name: "teste" }]);
+
+    expect(data).to.be.equal(4);
+  })
+
   afterEach(function () {
     sinon.restore();
   });

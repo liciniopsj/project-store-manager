@@ -21,7 +21,7 @@ const returnSaleById = async (req, res) => {
 
   // console.log(data, '!!!!!!!!!!!!!!!!!');
   if (data.length === 0) {
-    return res.status(404).json({ message: 'Sale not found' })
+    return res.status(404).json({ message: 'Sale not found' });
   }
 
   return res.status(200).json(data);

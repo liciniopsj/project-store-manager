@@ -17,7 +17,7 @@ const getAllSales = async () => {
 };
 
 const getSaleById = async (id) => {
-  const data = salesModel.selectSaleById(id)
+  const data = salesModel.selectSaleById(id);
   return data;
 };
 

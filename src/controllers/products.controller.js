@@ -34,8 +34,8 @@ const editProduct = async (req, res) => {
 
   const data = await productsService.updateProduct(id, name);
   if (!data) {
-    return res.status(404).json({ message: 'Product not found' })
-  };
+    return res.status(404).json({ message: 'Product not found' });
+  }
 
   return res.status(200).json(data);
 };

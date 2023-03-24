@@ -28,7 +28,7 @@ const updateProduct = async (id, name) => {
   const isValid = await getProductById(id);
   if (isValid.type === 404) {
     return false;
-  };
+  }
   const data = await productsModel.updateProductById(id, name);
   return data;
 };

@@ -19,19 +19,25 @@ const insertSaleProducts = async (sale) => {
   return { productId, quantity };
 };
 
-const selectSaleById = async (id) => {
+const selectSaleById = async (saleId) => {
   const query = `SELECT date, product_id as productId, quantity 
     FROM StoreManager.sales_products as salesP
     JOIN StoreManager.sales as sales
     ON salesP.sale_id = sales.id
     WHERE salesP.sale_id = ?
     ORDER BY sale_id, product_id`;
-  const [data] = await connection.execute(query, [id]);
+  const [data] = await connection.execute(query, [saleId]);
   return data;
 };
 
 const selectAllSales = async () => {
-  const [data] = await connection.execute('SELECT * FROM StoreManager.sales_products');
+  const query = `SELECT sale_id as saleId, sales.date, product_id as productId, quantity
+    FROM StoreManager.sales_products as salesP
+    JOIN StoreManager.sales as sales
+    ON salesP.sale_id = sales.id
+    ORDER BY sale_id, product_id`;
+  const [data] = await connection.execute(query);
+  // console.log(data, 'model layer');
   return data;
 };
 

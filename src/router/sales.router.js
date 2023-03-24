@@ -4,6 +4,9 @@ const { salesValidation, salesKeyValidation } = require('../middlewares/salesVal
 
 const salesRouter = express.Router();
 
-salesRouter.post('/', salesKeyValidation, salesValidation, salesController.createNewSale);
+salesRouter
+  .get('/', salesController.returnAllSales)
+  .get('/:id', salesController.returnSaleById)
+  .post('/', salesKeyValidation, salesValidation, salesController.createNewSale);
 
 module.exports = salesRouter;

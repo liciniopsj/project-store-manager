@@ -32,7 +32,7 @@ const salesValidation = async (req, res, next) => {
   const salesArray = req.body;
   const data = await salesModel.selectAllSales();
   
-  const ids = data.map((e) => e.product_id);
+  const ids = data.map((e) => e.productId);
 
   const comparingArray = salesArray.map((e) => e.productId);
 

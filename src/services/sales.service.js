@@ -10,6 +10,19 @@ const addSale = async (sales) => {
   return { id: saleId, itemsSold: addedSales };
 };
 
+const getAllSales = async () => {
+  const data = await salesModel.selectAllSales();
+  // console.log(data, 'Service layer');
+  return { type: null, message: data };
+};
+
+const getSaleById = async (id) => {
+  const data = salesModel.selectSaleById(id)
+  return data;
+};
+
 module.exports = {
   addSale,
+  getAllSales,
+  getSaleById,
 };
